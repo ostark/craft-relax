@@ -1,0 +1,64 @@
+{
+    "name": "vendor_slug/package_slug",
+    "description": "package_description",
+    "type": "craft-plugin",
+    "keywords": [
+        "craftcms",
+        "craft-plugin",
+        "package_slug"
+    ],
+    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "license": "plugin_license",
+    "authors": [
+        {
+            "name": "author_name",
+            "email": "author@domain.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "author@domain.com",
+        "issues": "https://github.com/vendor_slug/package_slug/issues?state=open",
+        "source": "https://github.com/vendor_slug/package_slug",
+        "docs": "https://github.com/vendor_slug/package_slug/blob/main/README.md"
+    },
+    "require": {
+        "php": "7.4 | ^8.0",
+        "craftcms/cms": "^3.5",
+        "treeware/plant": "*"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^5.10",
+        "phpstan/phpstan": "^1.0",
+        "pestphp/pest": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "VendorName\\Skeleton\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "VendorName\\Skeleton\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "phpstan": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "lint": "vendor/bin/pest coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "treeware": {},
+        "name": "package_name",
+        "handle": "plugin_handle",
+        "hasCpSettings": false,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/vendor_slug/package_slug/main/CHANGELOG.md",
+        "class": "VendorName\\Skeleton\\SkeletonPlugin"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
