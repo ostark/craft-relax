@@ -1,5 +1,5 @@
 {
-    "name": "vendor_slug/package_slug",
+    "name": "ostark/craft-relax",
     "description": "package_description",
     "type": "craft-plugin",
     "keywords": [
