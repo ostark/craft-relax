@@ -1,10 +1,10 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace ostark\Relax;
 
 use craft\base\Model;
 
-class SkeletonSettings extends Model
+class Settings extends Model
 {
     public $foo = 'defaultFooValue';
     public $bar = 'defaultBarValue';

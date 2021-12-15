@@ -1,5 +1,5 @@
 <?php
-// config for VendorName/Skeleton
+// config for ostark/Relax
 return [
 
 ];

@@ -84,8 +84,7 @@ $folderName = basename($currentDirectory);
 $packageName = ask('Plugin name', $folderName);
 $packageSlug = slugify($packageName);
 $pluginHandle = remove_prefix('craft-', $packageSlug);
-$className = title_case($packageName);
-$className = ask('Class name', $className);
+$className = ask('Class name', 'Plugin');
 $description = ask('Plugin description', "This is my plugin {$packageSlug}");
 $pluginLicense = ask('Plugin license (MIT or proprietary)', 'MIT');
 

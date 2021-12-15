@@ -1,26 +1,26 @@
 {
     "name": "ostark/craft-relax",
-    "description": "package_description",
+    "description": "Craft relax! Less database I/O ",
     "type": "craft-plugin",
     "keywords": [
         "craftcms",
         "craft-plugin",
-        "package_slug"
+        "craft-relax"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
-    "license": "plugin_license",
+    "homepage": "https://github.com/:ostark/:craft-relax",
+    "license": "MIT",
     "authors": [
         {
-            "name": "author_name",
-            "email": "author@domain.com",
+            "name": "Oliver Stark",
+            "email": "os@fortrabbit.com",
             "role": "Developer"
         }
     ],
     "support": {
-        "email": "author@domain.com",
-        "issues": "https://github.com/vendor_slug/package_slug/issues?state=open",
-        "source": "https://github.com/vendor_slug/package_slug",
-        "docs": "https://github.com/vendor_slug/package_slug/blob/main/README.md"
+        "email": "os@fortrabbit.com",
+        "issues": "https://github.com/ostark/craft-relax/issues?state=open",
+        "source": "https://github.com/ostark/craft-relax",
+        "docs": "https://github.com/ostark/craft-relax/blob/main/README.md"
     },
     "require": {
         "php": "7.4 | ^8.0",
@@ -34,12 +34,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src"
+            "ostark\\Relax\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "ostark\\Relax\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -52,12 +52,12 @@
     },
     "extra": {
         "treeware": {},
-        "name": "package_name",
-        "handle": "plugin_handle",
+        "name": "craft-relax",
+        "handle": "relax",
         "hasCpSettings": false,
         "hasCpSection": false,
-        "changelogUrl": "https://raw.githubusercontent.com/vendor_slug/package_slug/main/CHANGELOG.md",
-        "class": "VendorName\\Skeleton\\SkeletonPlugin"
+        "changelogUrl": "https://raw.githubusercontent.com/ostark/craft-relax/main/CHANGELOG.md",
+        "class": "ostark\\Relax\\Plugin"
     },
     "minimum-stability": "dev",
     "prefer-stable": true

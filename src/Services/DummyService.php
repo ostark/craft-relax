@@ -1,10 +1,11 @@
 <?php
 
-namespace VendorName\Skeleton\Services;
+namespace ostark\Relax\Services;
 
+use craft\config\GeneralConfig;
 use craft\services\Config;
-use VendorName\Skeleton\SkeletonPlugin;
-use VendorName\Skeleton\Settings;
+use ostark\Relax\RelaxPlugin;
+use ostark\Relax\Settings;
 use yii\base\Application;
 
 /**
@@ -12,27 +13,27 @@ use yii\base\Application;
  * Why should we inject dependencies?
  * How to test this?
  */
-class SkeletonService
+class DummyService
 {
 
-    protected Config $craftConfig;
+    protected GeneralConfig $config;
 
     protected Settings $settings;
 
-    public function __construct(Config $craftConfig, Settings $settings)
+    public function __construct(GeneralConfig $generalConfig, Settings $settings)
     {
-        $this->craftConfig = $craftConfig;
+        $this->config = $generalConfig;
         $this->settings = $settings;
     }
 
     public function doSomeThing(): bool
     {
-        if ($this->craftConfig->general->devMode === true) {
+        if ($this->config->devMode === true) {
            // Craft devMode only
         }
 
         if ($this->settings->bar === 'someValue') {
-            // SkeletonPlugin setting bar is someValue
+            // RelaxPlugin setting bar is someValue
         }
 
         return false;

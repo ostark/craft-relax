@@ -1,8 +1,8 @@
 <?php
 
-namespace VendorName\Skeleton\Handlers;
+namespace ostark\Relax\Handlers;
 
-use VendorName\Skeleton\Settings;
+use ostark\Relax\Settings;
 
 /**
  * What the fuck is a handler?
@@ -10,7 +10,7 @@ use VendorName\Skeleton\Settings;
  * How to test this?
  *
  */
-class SkeletonHandler
+class FooHandler
 {
     protected Settings $settings;
 

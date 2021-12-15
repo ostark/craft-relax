@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\migrations;
+namespace ostark\Relax\migrations;
 
 use Craft;
 use craft\config\DbConfig;
