@@ -24,7 +24,9 @@ class Plugin extends BasePlugin
 
         $this->registerSingletons();
         $this->registerEventHandlers();
-        $this->overwriteSearchService();
+
+        $this->configureSearchService();
+        $this->configureDepreactionService();
 
     }
 
@@ -52,12 +54,22 @@ class Plugin extends BasePlugin
 
     }
 
-    private function overwriteSearchService()
+    private function configureSearchService(): void
     {
         \Craft::$app->set('search', function () {
             $filters = [AttributeFilter::class, KeywordFilter::class];
             return new SearchService(\Craft::$app->getDb(), $filters);
         });
+    }
+
+    private function configureDepreactionService(): void
+    {
+        if (
+            $this->getSettings()->muteDeprecations === true &&
+            \Craft::$app->getConfig()->general->devMode === false
+        ) {
+            \Craft::$app->getDeprecator()->logTarget = false;
+        }
 
     }
 
