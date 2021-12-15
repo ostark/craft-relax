@@ -4,6 +4,9 @@ namespace ostark\Relax;
 
 use craft\base\Plugin as BasePlugin;
 use ostark\Relax\Handlers\FooHandler;
+use ostark\Relax\SearchIndex\Filters\AttributeFilter;
+use ostark\Relax\SearchIndex\Filters\KeywordFilter;
+use ostark\Relax\SearchIndex\SearchService;
 use ostark\Relax\Services\DummyService;
 
 /**
@@ -21,8 +24,10 @@ class Plugin extends BasePlugin
 
         $this->registerSingletons();
         $this->registerEventHandlers();
+        $this->overwriteSearchService();
 
     }
+
 
     private function registerEventHandlers(): void
     {
@@ -46,6 +51,17 @@ class Plugin extends BasePlugin
         });
 
     }
+
+    private function overwriteSearchService()
+    {
+        \Craft::$app->set('search', function () {
+            $filters = [AttributeFilter::class, KeywordFilter::class];
+            return new SearchService(\Craft::$app->getDb(), $filters);
+        });
+
+    }
+
+
 
     protected function createSettingsModel(): Settings
     {

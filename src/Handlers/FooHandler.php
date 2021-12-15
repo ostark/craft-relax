@@ -4,12 +4,7 @@ namespace ostark\Relax\Handlers;
 
 use ostark\Relax\Settings;
 
-/**
- * What the fuck is a handler?
- * Why a dedicated classs?
- * How to test this?
- *
- */
+
 class FooHandler
 {
     protected Settings $settings;
