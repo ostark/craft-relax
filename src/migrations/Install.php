@@ -4,7 +4,7 @@ namespace ostark\Relax\migrations;
 
 use craft\db\Migration;
 use craft\db\Table;
-use ostark\Relax\Queue\HashedJobQueue;
+use ostark\Relax\Relaxants\Queue\HashedJobQueue;
 
 
 class Install extends Migration

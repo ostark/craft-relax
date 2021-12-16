@@ -1,6 +1,6 @@
 <?php
 
-namespace ostark\Relax\SearchIndex;
+namespace ostark\Relax\Relaxants\SearchIndex;
 
 interface InsertFilter
 {

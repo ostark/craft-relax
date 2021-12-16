@@ -3,8 +3,8 @@
 namespace ostark\Relax;
 
 use craft\base\Model;
-use ostark\Relax\SearchIndex\InsertFilter\AttributeInsertFilter;
-use ostark\Relax\SearchIndex\InsertFilter\KeywordInsertFilter;
+use ostark\Relax\Relaxants\SearchIndex\InsertFilter\AttributeInsertFilter;
+use ostark\Relax\Relaxants\SearchIndex\InsertFilter\KeywordInsertFilter;
 
 class Settings extends Model
 {

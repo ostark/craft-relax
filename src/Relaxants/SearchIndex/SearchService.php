@@ -1,27 +1,27 @@
 <?php
 
-namespace ostark\Relax\SearchIndex;
+namespace ostark\Relax\Relaxants\SearchIndex;
 
 use craft\base\ElementInterface;
 use craft\db\Command;
 use craft\db\Connection;
 use craft\elements\db\ElementQuery;
 use craft\services\Search;
-use ostark\Relax\SearchIndex\InsertFilter\AttributeInsertFilter;
-use ostark\Relax\SearchIndex\InsertFilter\KeywordInsertFilter;
+use ostark\Relax\Relaxants\SearchIndex\InsertFilter\AttributeInsertFilter;
+use ostark\Relax\Relaxants\SearchIndex\InsertFilter\KeywordInsertFilter;
 
 class SearchService extends Search
 {
     protected Connection $connection;
 
     /**
-     * @var \ostark\Relax\SearchIndex\InsertFilter[]
+     * @var \ostark\Relax\Relaxants\SearchIndex\InsertFilter[]
      */
     protected array $filters = [];
 
     /**
      * @param \craft\db\Connection $connection
-     * @param \ostark\Relax\SearchIndex\InsertFilter[] $filters
+     * @param \ostark\Relax\Relaxants\SearchIndex\InsertFilter[] $filters
      */
     public function __construct(Connection $connection, $filters = [])
     {
@@ -46,7 +46,7 @@ class SearchService extends Search
 
     /**
      * @param string                                   $class
-     * @param \ostark\Relax\SearchIndex\InsertFilter[] $filters
+     * @param \ostark\Relax\Relaxants\SearchIndex\InsertFilter[] $filters
      */
     private function setDbCommand(string $class, $filters = [])
     {

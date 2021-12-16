@@ -1,6 +1,6 @@
 <?php
 
-namespace ostark\Relax\Queue;
+namespace ostark\Relax\Relaxants\Queue;
 
 use craft\db\Query;
 use craft\helpers\Db;
