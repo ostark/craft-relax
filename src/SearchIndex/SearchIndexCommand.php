@@ -8,7 +8,7 @@ use craft\db\Table;
 class SearchIndexCommand extends Command
 {
     /**
-     * @var \ostark\Relax\SearchIndex\Filter[]
+     * @var \ostark\Relax\SearchIndex\InsertFilter[]
      */
     public array $filters = [];
 

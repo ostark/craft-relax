@@ -2,7 +2,7 @@
 
 namespace ostark\Relax\SearchIndex;
 
-interface Filter
+interface InsertFilter
 {
     /**
      * @param array $columns

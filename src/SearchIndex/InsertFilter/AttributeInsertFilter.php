@@ -1,10 +1,10 @@
 <?php
 
-namespace ostark\Relax\SearchIndex\Filters;
+namespace ostark\Relax\SearchIndex\InsertFilter;
 
-use ostark\Relax\SearchIndex\Filter;
+use ostark\Relax\SearchIndex\InsertFilter;
 
-class AttributeFilter implements Filter
+class AttributeInsertFilter implements InsertFilter
 {
 
     public array $skippableAttributes = ['slug', 'extension', 'kind'];

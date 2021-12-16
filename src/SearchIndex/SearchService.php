@@ -7,23 +7,26 @@ use craft\db\Command;
 use craft\db\Connection;
 use craft\elements\db\ElementQuery;
 use craft\services\Search;
-use ostark\Relax\SearchIndex\Filters\AttributeFilter;
-use ostark\Relax\SearchIndex\Filters\KeywordFilter;
+use ostark\Relax\SearchIndex\InsertFilter\AttributeInsertFilter;
+use ostark\Relax\SearchIndex\InsertFilter\KeywordInsertFilter;
 
 class SearchService extends Search
 {
     protected Connection $connection;
 
     /**
-     * @var \ostark\Relax\SearchIndex\Filter[]
+     * @var \ostark\Relax\SearchIndex\InsertFilter[]
      */
     protected array $filters = [];
 
-
+    /**
+     * @param \craft\db\Connection $connection
+     * @param \ostark\Relax\SearchIndex\InsertFilter[] $filters
+     */
     public function __construct(Connection $connection, $filters = [])
     {
-        $this->connection = $connection;
         $this->filters = $filters;
+        $this->connection = $connection;
     }
 
 
@@ -42,8 +45,8 @@ class SearchService extends Search
     }
 
     /**
-     * @param string $class
-     * @param \ostark\Relax\SearchIndex\Filter[]  $filters
+     * @param string                                   $class
+     * @param \ostark\Relax\SearchIndex\InsertFilter[] $filters
      */
     private function setDbCommand(string $class, $filters = [])
     {

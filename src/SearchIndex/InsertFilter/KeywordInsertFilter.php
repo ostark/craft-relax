@@ -1,10 +1,10 @@
 <?php
 
-namespace ostark\Relax\SearchIndex\Filters;
+namespace ostark\Relax\SearchIndex\InsertFilter;
 
-use ostark\Relax\SearchIndex\Filter;
+use ostark\Relax\SearchIndex\InsertFilter;
 
-class KeywordFilter implements Filter
+class KeywordInsertFilter implements InsertFilter
 {
 
     public function skip(array $columns): bool
