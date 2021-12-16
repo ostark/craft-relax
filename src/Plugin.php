@@ -4,10 +4,8 @@ namespace ostark\Relax;
 
 use craft\base\Plugin as BasePlugin;
 use craft\queue\Queue;
-use ostark\Relax\Handlers\FooHandler;
 use ostark\Relax\Relaxants\Queue\HashedJobQueue;
 use ostark\Relax\Relaxants\SearchIndex\SearchService;
-use yii\base\Event;
 
 /**
  * @method Settings getSettings()

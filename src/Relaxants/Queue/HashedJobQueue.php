@@ -4,6 +4,7 @@ namespace ostark\Relax\Relaxants\Queue;
 
 use craft\db\Query;
 use craft\helpers\Db;
+use craft\queue\JobInterface as CraftJob;
 use craft\queue\Queue;
 use craft\queue\QueueInterface;
 
@@ -11,23 +12,23 @@ class HashedJobQueue extends Queue implements QueueInterface
 {
     public const HASH_COLUMN = 'job_hash';
     public const HASH_INDEX = 'idx_hash';
-
+    public static array $cache = [];
     public ?DefaultHasher $hasher;
-    private static array $cache = [];
 
-    public function init()
+    private ?string $jobDescription;
+
+    public function init(): void
     {
         parent::init();
 
         $this->hasher = new DefaultHasher($this->serializer);
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function push($job)
+
+    public function push($job): ?string
     {
         $hash = $this->hasher->hash($job);
+        $this->jobDescription = ($job instanceof CraftJob) ? $job->getDescription() : null;
 
         // Avoid duplicates within this cycle
         if (in_array($hash, static::$cache)) {
@@ -36,13 +37,11 @@ class HashedJobQueue extends Queue implements QueueInterface
 
         array_push(static::$cache, $hash);
 
-        parent::push($job);
+        return parent::push($job);
     }
 
-    /**
-     * @inheritdoc
-     */
-    protected function pushMessage($message, $ttr, $delay, $priority)
+
+    protected function pushMessage($message, $ttr, $delay, $priority): ?string
     {
         $hash = $this->hasher->hash($message);
         $found = (new Query())
@@ -56,7 +55,7 @@ class HashedJobQueue extends Queue implements QueueInterface
 
         $data = [
             'job' => $message,
-            'description' => $this->_jobDescription,
+            'description' => $this->jobDescription,
             'timePushed' => time(),
             'ttr' => $ttr,
             'delay' => $delay,

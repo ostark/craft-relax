@@ -48,7 +48,7 @@ class SearchService extends Search
      * @param string                                   $class
      * @param \ostark\Relax\Relaxants\SearchIndex\InsertFilter[] $filters
      */
-    private function setDbCommand(string $class, $filters = [])
+    private function setDbCommand(string $class, $filters = []): void
     {
         $config = [
             'class' => $class,

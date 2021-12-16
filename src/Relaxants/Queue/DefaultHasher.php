@@ -17,6 +17,11 @@ class DefaultHasher
         $this->seconds = $seconds;
     }
 
+    /**
+     * @param \yii\queue\JobInterface|string $job
+     *
+     * @return string
+     */
     public function hash($job): string
     {
         $hash = md5($this->serializer->serialize($job));
@@ -27,6 +32,6 @@ class DefaultHasher
 
     private function roundedTimestamp(): int
     {
-        return round(time()/$this->seconds)*$this->seconds;
+        return (int) round(time()/$this->seconds)*$this->seconds;
     }
 }
