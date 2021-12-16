@@ -5,6 +5,7 @@ namespace ostark\Relax;
 use craft\base\Plugin as BasePlugin;
 use craft\queue\Queue;
 use ostark\Relax\Handlers\FooHandler;
+use ostark\Relax\Queue\HashedJobQueue;
 use ostark\Relax\SearchIndex\SearchService;
 use yii\base\Event;
 
@@ -25,8 +26,6 @@ final class Plugin extends BasePlugin
         // inject it everywhere filled with config data
         \Craft::$container->setSingleton(Settings::class, fn() => $this->getSettings());
 
-        $this->registerEventHandlers();
-
         $this->configureSearchService();
         $this->configureDepreactionService();
         $this->configureQueueService();
@@ -38,9 +37,6 @@ final class Plugin extends BasePlugin
         return new Settings();
     }
 
-
-
-
     private function configureSearchService(): void
     {
         $filters = $this->getSettings()->searchIndexInsertFilter;
@@ -51,6 +47,7 @@ final class Plugin extends BasePlugin
             }
         }
 
+        // Overwrite service locator registry
         \Craft::$app->set('search', function () use ($filters) {
             return new SearchService(\Craft::$app->getDb(), $filters);
         });
@@ -62,6 +59,7 @@ final class Plugin extends BasePlugin
             $this->getSettings()->muteDeprecations === true &&
             \Craft::$app->getConfig()->general->devMode === false
         ) {
+            // Don't log
             \Craft::$app->getDeprecator()->logTarget = false;
         }
 
@@ -73,10 +71,8 @@ final class Plugin extends BasePlugin
             return;
         }
 
-        \Craft::$app->set('queue', function () {
-            return new SearchService(\Craft::$app->getDb(), $filters);
-        });
-
+        // Overwrite service locator registry
+        \Craft::$app->set('queue', HashedJobQueue::class);
     }
 
 

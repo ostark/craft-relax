@@ -65,6 +65,7 @@ class HashedJobQueue extends Queue implements QueueInterface
         ];
 
         Db::insert($this->tableName, $data, false, $this->db);
+
         return $this->db->getLastInsertID($this->tableName);
     }
 
