@@ -48,7 +48,13 @@
         "lint": "vendor/bin/pest coverage"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "pestphp/pest-plugin": true,
+            "craftcms/plugin-installer": true,
+            "treeware/plant": true
+        }
     },
     "extra": {
         "treeware": {},
