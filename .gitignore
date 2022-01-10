@@ -4,6 +4,7 @@
 .phpunit.result.cache
 build
 tests/runtime
+tests/storage
 composer.lock
 coverage
 docs

@@ -16,7 +16,7 @@ class QueueServiceHandler
         $this->settings = $settings;
     }
 
-    public function __invoke()
+    public function __invoke(): void
     {
         // Disabled in settings?
         if (!$this->settings->hashedQueue) {

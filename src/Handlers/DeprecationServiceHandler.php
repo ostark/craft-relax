@@ -4,6 +4,7 @@ namespace ostark\Relax\Handlers;
 
 use Craft;
 use ostark\Relax\PluginSettings;
+use yii\base\Event;
 
 class DeprecationServiceHandler
 {

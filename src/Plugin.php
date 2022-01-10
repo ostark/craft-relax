@@ -7,6 +7,7 @@ use craft\services\Plugins;
 use ostark\Relax\Handlers\DeprecationServiceHandler;
 use ostark\Relax\Handlers\QueueServiceHandler;
 use ostark\Relax\Handlers\SearchServiceHandler;
+use yii\base\Event;
 
 
 /**
@@ -18,15 +19,16 @@ final class Plugin extends BasePlugin
     public $hasCpSettings = false;
     public $hasCpSection = false;
 
+
     public function init(): void
     {
         parent::init();
 
-        Plugins::on(Plugins::EVENT_AFTER_LOAD_PLUGINS, new SearchServiceHandler($this->getSettings()));
-        Plugins::on(Plugins::EVENT_AFTER_LOAD_PLUGINS, new DeprecationServiceHandler($this->getSettings()));
-        Plugins::on(Plugins::EVENT_AFTER_LOAD_PLUGINS, new QueueServiceHandler($this->getSettings()));
-
+        Event::on(Plugins::class, Plugins::EVENT_AFTER_LOAD_PLUGINS, new SearchServiceHandler($this->getSettings()));
+        Event::on(Plugins::class, Plugins::EVENT_AFTER_LOAD_PLUGINS, new DeprecationServiceHandler($this->getSettings()));
+        Event::on(Plugins::class, Plugins::EVENT_AFTER_LOAD_PLUGINS, new QueueServiceHandler($this->getSettings()));
     }
+
 
     protected function createSettingsModel(): PluginSettings
     {
