@@ -20,8 +20,9 @@ class SearchService extends Search
      * @param \craft\db\Connection $connection
      * @param \ostark\Relax\Relaxants\SearchIndex\InsertFilter[] $filters
      */
-    public function __construct(Connection $connection, $filters = [])
+    public function __construct(Connection $connection, array $filters = [])
     {
+        parent::__construct();
         $this->filters = $filters;
         $this->connection = $connection;
     }
@@ -60,6 +61,5 @@ class SearchService extends Search
         $this->connection->commandMap['mysqli'] =  $config;
         $this->connection->commandMap['mysql'] =  $config;
     }
-
 
 }
