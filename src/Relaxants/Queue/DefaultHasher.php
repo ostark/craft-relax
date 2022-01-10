@@ -2,7 +2,6 @@
 
 namespace ostark\Relax\Relaxants\Queue;
 
-use yii\queue\JobInterface;
 use yii\queue\serializers\SerializerInterface;
 
 class DefaultHasher

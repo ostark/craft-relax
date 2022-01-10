@@ -5,10 +5,7 @@ namespace ostark\Relax\Relaxants\SearchIndex;
 use craft\base\ElementInterface;
 use craft\db\Command;
 use craft\db\Connection;
-use craft\elements\db\ElementQuery;
 use craft\services\Search;
-use ostark\Relax\Relaxants\SearchIndex\InsertFilter\AttributeInsertFilter;
-use ostark\Relax\Relaxants\SearchIndex\InsertFilter\KeywordInsertFilter;
 
 class SearchService extends Search
 {

@@ -15,7 +15,7 @@ class SearchIndexCommand extends Command
     public function insert($table, $columns, $includeAuditColumns = true)
     {
         if ($table === Table::SEARCHINDEX) {
-            if ($this->skip($columns)) {
+            if ($this->applyFilters($columns)) {
                 return $this;
             }
         }
@@ -23,7 +23,7 @@ class SearchIndexCommand extends Command
         return parent::insert($table, $columns, $includeAuditColumns);
     }
 
-    protected function skip(array $columns): bool
+    protected function applyFilters(array $columns): bool
     {
         foreach ($this->filters as $filter) {
             if ($filter->skip($columns)) {

@@ -30,7 +30,7 @@ class HashedJobQueue extends Queue implements QueueInterface
         $hash = $this->hasher->hash($job);
         $this->jobDescription = ($job instanceof CraftJob) ? $job->getDescription() : null;
 
-        // Avoid duplicates within this cycle
+        // Avoid duplicates within this execution cycle
         if (in_array($hash, static::$cache)) {
             return null;
         }

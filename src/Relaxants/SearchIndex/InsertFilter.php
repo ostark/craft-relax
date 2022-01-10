@@ -6,10 +6,12 @@ interface InsertFilter
 {
     /**
      * @param array $columns
-     *    {
-     *      'attribute': 'slug',
-     *      'keywords': 'chain of keywords'
-     *    }
+     * Example:
+     * [
+     *   'attribute' => 'slug',
+     *   'keywords' => 'group of keywords'
+     * ]
+     *
      * @return bool
      */
     public function skip(array $columns): bool;

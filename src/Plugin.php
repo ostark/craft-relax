@@ -3,76 +3,33 @@
 namespace ostark\Relax;
 
 use craft\base\Plugin as BasePlugin;
-use craft\queue\Queue;
-use ostark\Relax\Relaxants\Queue\HashedJobQueue;
-use ostark\Relax\Relaxants\SearchIndex\SearchService;
+use craft\services\Plugins;
+use ostark\Relax\Handlers\DeprecationServiceHandler;
+use ostark\Relax\Handlers\QueueServiceHandler;
+use ostark\Relax\Handlers\SearchServiceHandler;
+
 
 /**
- * @method Settings getSettings()
+ * @method PluginSettings getSettings()
  */
 final class Plugin extends BasePlugin
 {
-    // public $schemaVersion = '1.0.0';
-    // public $hasCpSettings = true;
-    // public $hasCpSection = true;
+    public $schemaVersion = '1.0.0';
+    public $hasCpSettings = false;
+    public $hasCpSection = false;
 
     public function init(): void
     {
         parent::init();
 
-        // Register the Settings Model in the container, so we can
-        // inject it everywhere filled with config data
-        \Craft::$container->setSingleton(Settings::class, fn() => $this->getSettings());
-
-        $this->configureSearchService();
-        $this->configureDepreactionService();
-        $this->configureQueueService();
+        Plugins::on(Plugins::EVENT_AFTER_LOAD_PLUGINS, new SearchServiceHandler($this->getSettings()));
+        Plugins::on(Plugins::EVENT_AFTER_LOAD_PLUGINS, new DeprecationServiceHandler($this->getSettings()));
+        Plugins::on(Plugins::EVENT_AFTER_LOAD_PLUGINS, new QueueServiceHandler($this->getSettings()));
 
     }
 
-    protected function createSettingsModel(): Settings
+    protected function createSettingsModel(): PluginSettings
     {
-        return new Settings();
+        return new PluginSettings();
     }
-
-    private function configureSearchService(): void
-    {
-        $filters = $this->getSettings()->searchIndexInsertFilter;
-
-        foreach ($filters as $key => $class) {
-            if (is_string($class)) {
-                $filters[$key] = \Craft::createObject($class);
-            }
-        }
-
-        // Overwrite service locator registry
-        \Craft::$app->set('search', function () use ($filters) {
-            return new SearchService(\Craft::$app->getDb(), $filters);
-        });
-    }
-
-    private function configureDepreactionService(): void
-    {
-        if (
-            $this->getSettings()->muteDeprecations === true &&
-            \Craft::$app->getConfig()->general->devMode === false
-        ) {
-            // Don't log
-            \Craft::$app->getDeprecator()->logTarget = false;
-        }
-
-    }
-
-    private function configureQueueService(): void
-    {
-        if (get_class(\Craft::$app->getQueue()) !== Queue::class) {
-            return;
-        }
-
-        // Overwrite service locator registry
-        \Craft::$app->set('queue', HashedJobQueue::class);
-    }
-
-
-
 }

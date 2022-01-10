@@ -4,7 +4,7 @@ namespace ostark\Relax\Relaxants\SearchIndex\InsertFilter;
 
 use ostark\Relax\Relaxants\SearchIndex\InsertFilter;
 
-class AttributeInsertFilter implements InsertFilter
+class UselessAttributes implements InsertFilter
 {
 
     public array $skippableAttributes = ['slug', 'extension', 'kind'];
