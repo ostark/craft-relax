@@ -4,6 +4,7 @@ namespace ostark\Relax\Handlers;
 
 use Craft;
 use craft\queue\Queue;
+use ostark\Relax\Relaxants\Queue\DefaultHasher;
 use ostark\Relax\Relaxants\Queue\HashedJobQueue;
 use ostark\Relax\PluginSettings;
 
@@ -29,6 +30,8 @@ class QueueServiceHandler
         }
 
         // Overwrite 'queue' key in service locator
-        Craft::$app->set('queue', HashedJobQueue::class);
+        $serializer = Craft::$app->getQueue()->serializer;
+        $hasher = new DefaultHasher($serializer);
+        Craft::$app->set('queue', new HashedJobQueue($hasher));
     }
 }

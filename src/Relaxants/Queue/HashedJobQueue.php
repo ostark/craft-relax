@@ -13,18 +13,22 @@ class HashedJobQueue extends Queue implements QueueInterface
     public const HASH_COLUMN = 'job_hash';
     public const HASH_INDEX = 'idx_hash';
     public static array $cache = [];
-    public ?DefaultHasher $hasher;
+    public Hasher $hasher;
 
     private ?string $jobDescription;
 
-    public function init(): void
+    public function __construct(Hasher $hasher, $config = [])
     {
-        parent::init();
-
-        $this->hasher = new DefaultHasher($this->serializer);
+        parent::__construct($config);
+        $this->hasher = $hasher;
     }
 
 
+    /**
+     * @param mixed|\yii\queue\JobInterface $job
+     *
+     * @return string|null
+     */
     public function push($job): ?string
     {
         $hash = $this->hasher->hash($job);
@@ -41,6 +45,15 @@ class HashedJobQueue extends Queue implements QueueInterface
     }
 
 
+    /**
+     * @param string $message
+     * @param int    $ttr
+     * @param int    $delay
+     * @param mixed  $priority
+     *
+     * @return string|null
+     * @throws \yii\db\Exception
+     */
     protected function pushMessage($message, $ttr, $delay, $priority): ?string
     {
         $hash = $this->hasher->hash($message);

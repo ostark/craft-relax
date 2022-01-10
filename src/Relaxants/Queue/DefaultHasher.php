@@ -4,7 +4,7 @@ namespace ostark\Relax\Relaxants\Queue;
 
 use yii\queue\serializers\SerializerInterface;
 
-class DefaultHasher
+class DefaultHasher implements Hasher
 {
     public int $seconds = 600;
 
