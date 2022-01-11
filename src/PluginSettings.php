@@ -3,8 +3,9 @@
 namespace ostark\Relax;
 
 use craft\base\Model;
-use ostark\Relax\Relaxants\SearchIndex\InsertFilter\UselessAttributes;
-use ostark\Relax\Relaxants\SearchIndex\InsertFilter\UselessKeywords;
+use ostark\Relax\SearchIndex\InsertFilter\UselessAttributes;
+use ostark\Relax\SearchIndex\InsertFilter\UselessKeywords;
+
 
 class PluginSettings extends Model
 {

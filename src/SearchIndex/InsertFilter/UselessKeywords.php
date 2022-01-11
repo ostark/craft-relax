@@ -1,8 +1,8 @@
 <?php
 
-namespace ostark\Relax\Relaxants\SearchIndex\InsertFilter;
+namespace ostark\Relax\SearchIndex\InsertFilter;
 
-use ostark\Relax\Relaxants\SearchIndex\InsertFilter;
+use ostark\Relax\SearchIndex\InsertFilter;
 
 class UselessKeywords implements InsertFilter
 {

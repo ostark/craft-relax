@@ -4,8 +4,8 @@ namespace ostark\Relax\Handlers;
 
 use Craft;
 use craft\queue\Queue;
-use ostark\Relax\Relaxants\Queue\DefaultHasher;
-use ostark\Relax\Relaxants\Queue\HashedJobQueue;
+use ostark\Relax\Queue\DefaultHasher;
+use ostark\Relax\Queue\HashedJobQueue;
 use ostark\Relax\PluginSettings;
 
 class QueueServiceHandler

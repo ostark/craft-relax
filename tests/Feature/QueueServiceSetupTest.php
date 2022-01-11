@@ -1,12 +1,14 @@
 <?php
 
-use ostark\Relax\Relaxants\Queue\HashedJobQueue;
+use ostark\Relax\Handlers\QueueServiceHandler;
+use ostark\Relax\PluginSettings;
+use ostark\Relax\Queue\HashedJobQueue;
 
 it('swaps queue service if enabled via config', function () {
     // Arrange service
     Craft::$app->set('queue', craft\queue\Queue::class);
-    $settings = new \ostark\Relax\PluginSettings(['hashedQueue' => true]);
-    $handler = new \ostark\Relax\Handlers\QueueServiceHandler($settings);
+    $settings = new PluginSettings(['hashedQueue' => true]);
+    $handler = new QueueServiceHandler($settings);
     $handler();
 
     // Assert
@@ -16,8 +18,8 @@ it('swaps queue service if enabled via config', function () {
 it('keeps queue service if not using database queue', function () {
     // Arrange service
     Craft::$app->set('queue', new class() extends \yii\queue\sync\Queue {});
-    $settings = new \ostark\Relax\PluginSettings(['hashedQueue' => true]);
-    $handler = new \ostark\Relax\Handlers\QueueServiceHandler($settings);
+    $settings = new PluginSettings(['hashedQueue' => true]);
+    $handler = new QueueServiceHandler($settings);
     $handler();
 
     // Assert

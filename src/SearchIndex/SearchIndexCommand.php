@@ -1,6 +1,6 @@
 <?php
 
-namespace ostark\Relax\Relaxants\SearchIndex;
+namespace ostark\Relax\SearchIndex;
 
 use craft\db\Command;
 use craft\db\Table;
@@ -8,7 +8,7 @@ use craft\db\Table;
 class SearchIndexCommand extends Command
 {
     /**
-     * @var \ostark\Relax\Relaxants\SearchIndex\InsertFilter[]
+     * @var \ostark\Relax\SearchIndex\InsertFilter[]
      */
     public array $filters = [];
 

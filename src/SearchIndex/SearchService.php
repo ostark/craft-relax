@@ -1,6 +1,6 @@
 <?php
 
-namespace ostark\Relax\Relaxants\SearchIndex;
+namespace ostark\Relax\SearchIndex;
 
 use craft\base\ElementInterface;
 use craft\db\Command;
@@ -12,13 +12,13 @@ class SearchService extends Search
     protected Connection $connection;
 
     /**
-     * @var \ostark\Relax\Relaxants\SearchIndex\InsertFilter[]
+     * @var \ostark\Relax\SearchIndex\InsertFilter[]
      */
     protected array $filters = [];
 
     /**
      * @param \craft\db\Connection $connection
-     * @param \ostark\Relax\Relaxants\SearchIndex\InsertFilter[] $filters
+     * @param \ostark\Relax\SearchIndex\InsertFilter[] $filters
      */
     public function __construct(Connection $connection, array $filters = [])
     {
@@ -44,7 +44,7 @@ class SearchService extends Search
 
     /**
      * @param string                                   $class
-     * @param \ostark\Relax\Relaxants\SearchIndex\InsertFilter[] $filters
+     * @param \ostark\Relax\SearchIndex\InsertFilter[] $filters
      */
     private function setDbCommand(string $class, $filters = []): void
     {

@@ -3,7 +3,7 @@
 namespace ostark\Relax\Handlers;
 
 use Craft;
-use ostark\Relax\Relaxants\SearchIndex\SearchService;
+use ostark\Relax\SearchIndex\SearchService;
 use ostark\Relax\PluginSettings;
 
 class SearchServiceHandler
