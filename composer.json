@@ -26,7 +26,7 @@
         "php": "^7.4 | ^8.0",
         "craftcms/cms": "^3.7.20",
         "treeware/plant": "*",
-        "yiisoft/yii2-queue":"^2.3.2"
+        "yiisoft/yii2-queue":"^2.3.3"
     },
     "require-dev": {
         "nunomaduro/collision": "^5.10",
