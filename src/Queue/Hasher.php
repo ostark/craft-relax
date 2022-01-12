@@ -9,5 +9,5 @@ interface Hasher
      *
      * @return string
      */
-    function hash($job): string;
+    public function hash($job): string;
 }

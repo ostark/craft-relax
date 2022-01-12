@@ -6,7 +6,6 @@ use ostark\Relax\SearchIndex\InsertFilter;
 
 class UselessAttributes implements InsertFilter
 {
-
     public array $skippableAttributes = ['slug', 'extension', 'kind'];
 
     public function skip(array $columns): bool

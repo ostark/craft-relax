@@ -6,11 +6,8 @@ use craft\db\Migration;
 use craft\db\Table;
 use ostark\Relax\Queue\HashedJobQueue;
 
-
-
 class Install extends Migration
 {
-
     public function safeUp(): bool
     {
         $this->addColumn(Table::QUEUE, HashedJobQueue::HASH_COLUMN, $this->uid());
@@ -26,5 +23,4 @@ class Install extends Migration
 
         return true;
     }
-
 }

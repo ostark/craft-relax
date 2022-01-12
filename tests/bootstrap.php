@@ -1,6 +1,6 @@
 <?php
 
-if (!defined('CRAFT_BASE_PATH')) {
+if (! defined('CRAFT_BASE_PATH')) {
     define('CRAFT_BASE_PATH', __DIR__);
     define('YII_DEBUG', true);
 }

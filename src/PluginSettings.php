@@ -6,7 +6,6 @@ use craft\base\Model;
 use ostark\Relax\SearchIndex\InsertFilter\UselessAttributes;
 use ostark\Relax\SearchIndex\InsertFilter\UselessKeywords;
 
-
 class PluginSettings extends Model
 {
     public bool $hashedQueue = true;
@@ -15,8 +14,6 @@ class PluginSettings extends Model
 
     public array $searchIndexInsertFilter = [
         UselessAttributes::class,
-        UselessKeywords::class
+        UselessKeywords::class,
     ];
-
-
 }

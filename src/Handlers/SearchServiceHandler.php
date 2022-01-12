@@ -3,8 +3,8 @@
 namespace ostark\Relax\Handlers;
 
 use Craft;
-use ostark\Relax\SearchIndex\SearchService;
 use ostark\Relax\PluginSettings;
+use ostark\Relax\SearchIndex\SearchService;
 
 class SearchServiceHandler
 {
@@ -18,7 +18,7 @@ class SearchServiceHandler
     public function __invoke(): void
     {
         // No filters defined?
-        if (!$filters = $this->settings->searchIndexInsertFilter) {
+        if (! $filters = $this->settings->searchIndexInsertFilter) {
             return;
         }
 
@@ -29,6 +29,7 @@ class SearchServiceHandler
                     $filters[$key] = Craft::createObject($class);
                 }
             }
+
             return new SearchService(Craft::$app->getDb(), $filters);
         });
     }

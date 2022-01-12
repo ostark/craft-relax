@@ -34,4 +34,3 @@ class SearchIndexCommand extends Command
         return false;
     }
 }
-

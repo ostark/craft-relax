@@ -17,7 +17,7 @@ it('swaps queue service if enabled via config', function () {
 
 it('keeps queue service if not using database queue', function () {
     // Arrange service
-    Craft::$app->set('queue', new class() extends \yii\queue\sync\Queue {});
+    Craft::$app->set('queue', new class () extends \yii\queue\sync\Queue {});
     $settings = new PluginSettings(['hashedQueue' => true]);
     $handler = new QueueServiceHandler($settings);
     $handler();

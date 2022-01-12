@@ -26,11 +26,10 @@ class DefaultHasher implements Hasher
         $hash = md5($this->serializer->serialize($job));
 
         return sprintf("%s.%d", $hash, $this->roundedTimestamp());
-
     }
 
     private function roundedTimestamp(): int
     {
-        return (int) round(time()/$this->seconds)*$this->seconds;
+        return (int) round(time() / $this->seconds) * $this->seconds;
     }
 }

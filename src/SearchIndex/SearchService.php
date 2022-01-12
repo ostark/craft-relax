@@ -27,7 +27,6 @@ class SearchService extends Search
         $this->connection = $connection;
     }
 
-
     public function indexElementAttributes(ElementInterface $element, array $fieldHandles = null): bool
     {
         // Overwrite the Command used in the actual call
@@ -56,10 +55,9 @@ class SearchService extends Search
             $config['filters'] = $filters;
         }
 
-        $this->connection->commandClass =  $class;
+        $this->connection->commandClass = $class;
         $this->connection->commandMap['pgsql'] = $config;
-        $this->connection->commandMap['mysqli'] =  $config;
-        $this->connection->commandMap['mysql'] =  $config;
+        $this->connection->commandMap['mysqli'] = $config;
+        $this->connection->commandMap['mysql'] = $config;
     }
-
 }

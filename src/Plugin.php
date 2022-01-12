@@ -18,7 +18,6 @@ final class Plugin extends BasePlugin
     public $hasCpSettings = false;
     public $hasCpSection = false;
 
-
     public function init(): void
     {
         parent::init();
@@ -27,7 +26,6 @@ final class Plugin extends BasePlugin
         Event::on(Plugins::class, Plugins::EVENT_AFTER_LOAD_PLUGINS, new DeprecationServiceHandler($this->getSettings()));
         Event::on(Plugins::class, Plugins::EVENT_AFTER_LOAD_PLUGINS, new QueueServiceHandler($this->getSettings()));
     }
-
 
     protected function createSettingsModel(): PluginSettings
     {

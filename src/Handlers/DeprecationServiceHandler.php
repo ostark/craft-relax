@@ -4,7 +4,6 @@ namespace ostark\Relax\Handlers;
 
 use Craft;
 use ostark\Relax\PluginSettings;
-use yii\base\Event;
 
 class DeprecationServiceHandler
 {
@@ -18,7 +17,7 @@ class DeprecationServiceHandler
     public function __invoke(): void
     {
         // Disabled in config?
-        if (!$this->settings->muteDeprecations) {
+        if (! $this->settings->muteDeprecations) {
             return;
         }
 

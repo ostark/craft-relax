@@ -4,9 +4,9 @@ namespace ostark\Relax\Handlers;
 
 use Craft;
 use craft\queue\Queue;
+use ostark\Relax\PluginSettings;
 use ostark\Relax\Queue\DefaultHasher;
 use ostark\Relax\Queue\HashedJobQueue;
-use ostark\Relax\PluginSettings;
 
 class QueueServiceHandler
 {
@@ -20,7 +20,7 @@ class QueueServiceHandler
     public function __invoke(): void
     {
         // Disabled in settings?
-        if (!$this->settings->hashedQueue) {
+        if (! $this->settings->hashedQueue) {
             return;
         }
 

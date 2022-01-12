@@ -23,7 +23,6 @@ class HashedJobQueue extends Queue implements QueueInterface
         $this->hasher = $hasher;
     }
 
-
     /**
      * @param mixed|\yii\queue\JobInterface $job
      *
@@ -43,7 +42,6 @@ class HashedJobQueue extends Queue implements QueueInterface
 
         return parent::push($job);
     }
-
 
     /**
      * @param string $message
@@ -73,13 +71,11 @@ class HashedJobQueue extends Queue implements QueueInterface
             'ttr' => $ttr,
             'delay' => $delay,
             'priority' => $priority ?: 1024,
-            self::HASH_COLUMN => $hash
+            self::HASH_COLUMN => $hash,
         ];
 
         Db::insert($this->tableName, $data, false, $this->db);
 
         return $this->db->getLastInsertID($this->tableName);
     }
-
-
 }
