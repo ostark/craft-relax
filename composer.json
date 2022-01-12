@@ -45,9 +45,7 @@
     },
     "scripts": {
         "phpstan": "vendor/bin/phpstan analyse",
-        "test": "vendor/bin/pest",
-        "lint": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
-        "lint-diff": "vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run --diff -vvv"
+        "test": "vendor/bin/pest"
     },
     "config": {
         "sort-packages": true,
