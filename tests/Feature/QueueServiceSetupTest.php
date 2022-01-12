@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use ostark\Relax\Handlers\QueueServiceHandler;
 use ostark\Relax\PluginSettings;
 use ostark\Relax\Queue\HashedJobQueue;

@@ -5,6 +5,7 @@ $finder = Symfony\Component\Finder\Finder::create()
         __DIR__ . '/src',
         __DIR__ . '/tests',
     ])
+    ->exclude('storage')
     ->name('*.php')
     ->notName('*.twig.php')
     ->ignoreDotFiles(true)
@@ -36,5 +37,6 @@ return (new PhpCsFixer\Config())
             'keep_multiple_spaces_after_comma' => true,
         ],
         'single_trait_insert_per_statement' => true,
+        'declare_strict_types' => true,
     ])
     ->setFinder($finder);

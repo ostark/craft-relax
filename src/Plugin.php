@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ostark\Relax;
 
 use craft\base\Plugin as BasePlugin;

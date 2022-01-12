@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use ostark\Relax\Handlers\DeprecationServiceHandler;
 use ostark\Relax\PluginSettings;
 

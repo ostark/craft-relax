@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use craft\elements\GlobalSet;
 use craft\services\Search;
 use ostark\Relax\Handlers\SearchServiceHandler;

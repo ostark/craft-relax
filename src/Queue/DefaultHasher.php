@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ostark\Relax\Queue;
 
 use yii\queue\serializers\SerializerInterface;
