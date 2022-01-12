@@ -9,7 +9,6 @@ use ostark\Relax\Handlers\QueueServiceHandler;
 use ostark\Relax\Handlers\SearchServiceHandler;
 use yii\base\Event;
 
-
 /**
  * @method PluginSettings getSettings()
  */

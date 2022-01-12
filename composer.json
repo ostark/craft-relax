@@ -7,7 +7,7 @@
         "craft-plugin",
         "craft-relax"
     ],
-    "homepage": "https://github.com/:ostark/:craft-relax",
+    "homepage": "https://github.com/ostark/craft-relax",
     "license": "MIT",
     "authors": [
         {
@@ -30,7 +30,8 @@
     "require-dev": {
         "nunomaduro/collision": "^5.10",
         "phpstan/phpstan": "^1.0",
-        "pestphp/pest": "^1.2"
+        "pestphp/pest": "^1.2",
+        "friendsofphp/php-cs-fixer": "^3.0"
     },
     "autoload": {
         "psr-4": {
@@ -45,7 +46,8 @@
     "scripts": {
         "phpstan": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
-        "lint": "vendor/bin/pest coverage"
+        "lint": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
+        "lint-diff": "vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run --diff -vvv"
     },
     "config": {
         "sort-packages": true,
