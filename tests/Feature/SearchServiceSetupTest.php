@@ -15,10 +15,11 @@ it('swaps search service and command if default filters are configured', functio
     $handler = new SearchServiceHandler($settings);
     $handler();
 
+    $element = new GlobalSet();
+    $service = Craft::$app->getSearch();
+
     // Act
     try {
-        $element = new GlobalSet();
-        $service = Craft::$app->getSearch();
         $service->indexElementAttributes($element);
     } catch (\Exception $e) {
         // It will try to execute sql query

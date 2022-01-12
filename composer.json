@@ -24,8 +24,9 @@
     },
     "require": {
         "php": "^7.4 | ^8.0",
-        "craftcms/cms": "^3.5",
-        "treeware/plant": "*"
+        "craftcms/cms": "^3.7.20",
+        "treeware/plant": "*",
+        "yiisoft/yii2-queue":"^2.3.2"
     },
     "require-dev": {
         "nunomaduro/collision": "^5.10",
@@ -65,6 +66,5 @@
         "changelogUrl": "https://raw.githubusercontent.com/ostark/craft-relax/main/CHANGELOG.md",
         "class": "ostark\\Relax\\Plugin"
     },
-    "minimum-stability": "dev",
     "prefer-stable": true
 }
