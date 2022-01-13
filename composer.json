@@ -39,11 +39,7 @@
             "ostark\\Relax\\": "src"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "ostark\\Relax\\Tests\\": "tests"
-        }
-    },
+
     "scripts": {
         "phpstan": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest"
@@ -59,7 +55,7 @@
     },
     "extra": {
         "treeware": {},
-        "name": "craft-relax",
+        "name": "Relax",
         "handle": "relax",
         "hasCpSettings": false,
         "hasCpSection": false,

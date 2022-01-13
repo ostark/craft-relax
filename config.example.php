@@ -9,8 +9,8 @@
  */
 
 use craft\helpers\App;
-use ostark\Relax\Relaxants\SearchIndex\InsertFilter\UselessAttributes;
-use ostark\Relax\Relaxants\SearchIndex\InsertFilter\UselessKeywords;
+use ostark\Relax\SearchIndex\InsertFilter\UselessAttributes;
+use ostark\Relax\SearchIndex\InsertFilter\UselessKeywords;
 
 return [
 
@@ -36,8 +36,8 @@ return [
      * Search index inserts
      *
      * By default these filters prevent bloated indexes
-     * @see ostark\Relax\Relaxants\SearchIndex\InsertFilter\UselessAttributes
-     * @see ostark\Relax\Relaxants\SearchIndex\InsertFilter\UselessKeywords
+     * @see ostark\Relax\SearchIndex\InsertFilter\UselessAttributes
+     * @see ostark\Relax\SearchIndex\InsertFilter\UselessKeywords
      *
      * Define your own filters to adjust the opinionated behaviour of the plugin
      */
