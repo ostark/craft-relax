@@ -12,7 +12,7 @@ class Install extends Migration
 {
     public function safeUp(): bool
     {
-        $this->addColumn(Table::QUEUE, HashedJobQueue::HASH_COLUMN, $this->uid()->__toString());
+        $this->addColumn(Table::QUEUE, HashedJobQueue::HASH_COLUMN, $this->string(64)->null()->__toString());
         $this->createIndex(HashedJobQueue::HASH_INDEX, Table::QUEUE, [HashedJobQueue::HASH_COLUMN]);
 
         return true;
