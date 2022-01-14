@@ -4,6 +4,12 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/ostark/craft-relax.svg?style=flat-square)](https://packagist.org/packages/ostark/craft-relax)
 [![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen)](https://plant.treeware.earth/ostark/craft-relax)
 
+## 1.0 TODOs
+
+* Log improvements (search index skips, duplicated queue message)
+* Copy config automatically
+* Write intro README
+
 ## Installation
 
 You can install the package via composer:
