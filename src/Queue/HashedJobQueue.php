@@ -13,7 +13,7 @@ use craft\queue\QueueInterface;
 class HashedJobQueue extends Queue implements QueueInterface
 {
     public const HASH_COLUMN = 'job_hash';
-    public const HASH_INDEX = 'idx_hash';
+    public const HASH_INDEX = 'hash_idx';
     public const TABLE = 'queue_hashed';
     public static array $cache = [];
     public Hasher $hasher;

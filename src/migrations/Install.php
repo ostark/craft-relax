@@ -34,8 +34,8 @@ class Install extends Migration
             'error' => $this->text(),
         ]);
 
-        $this->createIndex(null, HashedJobQueue::TABLE, ['channel', 'fail', 'timeUpdated', 'timePushed']);
-        $this->createIndex(null, HashedJobQueue::TABLE, ['channel', 'fail', 'timeUpdated', 'delay']);
+        $this->createIndex('channel_timePushed_idx', HashedJobQueue::TABLE, ['channel', 'fail', 'timeUpdated', 'timePushed']);
+        $this->createIndex('channel_delay_idx', HashedJobQueue::TABLE, ['channel', 'fail', 'timeUpdated', 'delay']);
         $this->createIndex(HashedJobQueue::HASH_INDEX, HashedJobQueue::TABLE, [HashedJobQueue::HASH_COLUMN]);
 
         return true;
