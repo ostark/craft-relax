@@ -57,7 +57,6 @@ class SearchService extends Search
             $config['filters'] = $filters;
         }
 
-        $this->connection->commandClass = $class;
         $this->connection->commandMap['pgsql'] = $config;
         $this->connection->commandMap['mysqli'] = $config;
         $this->connection->commandMap['mysql'] = $config;

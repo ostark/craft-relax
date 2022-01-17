@@ -27,7 +27,7 @@ it('swaps search service and command if default filters are configured', functio
 
     // Assert
     expect($service)->toBeInstanceOf(SearchService::class);
-    expect(Craft::$app->getDb()->commandClass)->toEqual(SearchIndexCommand::class);
+    expect(Craft::$app->getDb()->commandMap['mysql']['class'])->toEqual(SearchIndexCommand::class);
 });
 
 it('keeps the default service if no filters are configured', function () {
