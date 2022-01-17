@@ -39,7 +39,7 @@ $config = \craft\helpers\ArrayHelper::merge(
         ],
         'id' => 'test',
         'basePath' => __DIR__,
-        'class' => craft\console\Application::class
+        'class' => craft\console\Application::class,
     ],
     require 'vendor/craftcms/cms/src/config/app.php',
     require 'vendor/craftcms/cms/src/config/app.console.php',
