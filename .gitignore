@@ -12,3 +12,4 @@ docs
 vendor
 node_modules
 *.log
+/tests/_craft/storage/
