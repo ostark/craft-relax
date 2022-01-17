@@ -14,6 +14,7 @@ class HashedJobQueue extends Queue implements QueueInterface
 {
     public const HASH_COLUMN = 'job_hash';
     public const HASH_INDEX = 'idx_hash';
+    public const TABLE = 'queue_hashed';
     public static array $cache = [];
     public Hasher $hasher;
 
@@ -23,6 +24,7 @@ class HashedJobQueue extends Queue implements QueueInterface
     {
         parent::__construct($config);
         $this->hasher = $hasher;
+        $this->tableName = self::TABLE;
     }
 
     /**
