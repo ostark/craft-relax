@@ -8,16 +8,15 @@ use yii\queue\serializers\SerializerInterface;
 
 class DefaultHasher implements Hasher
 {
-    public int $seconds = 600;
+    public int $precisionInMinutes = 10;
 
     public SerializerInterface $serializer;
 
-    public function __construct(SerializerInterface $serializer, int $seconds = 600)
+    public function __construct(SerializerInterface $serializer, int $minutes = 10)
     {
         $this->serializer = $serializer;
-        $this->seconds = $seconds;
+        $this->precisionInMinutes = $minutes;
     }
-
     /**
      * @param \yii\queue\JobInterface|string $job
      *
@@ -27,11 +26,14 @@ class DefaultHasher implements Hasher
     {
         $hash = md5($this->serializer->serialize($job));
 
-        return sprintf("%s__%d", $hash, $this->roundedTimestamp());
+        return sprintf("%s__%s", $hash, $this->timeSuffix());
     }
 
-    private function roundedTimestamp(): int
+    private function timeSuffix(string $format = 'Ymd.His'): string
     {
-        return (int) round(time() / $this->seconds) * $this->seconds;
+        $precision = $this->precisionInMinutes * 60;
+        $rounded =  (int) ceil(time() / $precision) * $precision;
+
+        return date($format, $rounded);
     }
 }
