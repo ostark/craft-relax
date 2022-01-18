@@ -4,7 +4,9 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/ostark/craft-relax.svg?style=flat-square)](https://packagist.org/packages/ostark/craft-relax)
 [![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen)](https://plant.treeware.earth/ostark/craft-relax)
 
-The plugin tries to reduce write I/O on the database in multiple ways. It prevents servers from being overwhelmed by too many queue messages, the search index becomes leaner by skipping useless terms, and deprecation notices are written in dev environments only.
+The plugin tries to reduce write I/O on the database in multiple ways. 
+
+It prevents servers from being overwhelmed by too many queue messages, the search index becomes leaner by skipping useless terms, and deprecation notices are written in dev environments only.
 In result the database is more relaxed and can handle more queries faster, which leads to faster sites.
 
 
@@ -16,6 +18,10 @@ You can install the package via composer:
 composer require ostark/craft-relax
 php craft plugin/install relax
 ```
+
+The first time plugin is installed, a config file `config/relax.php` is created. All config settings are documented in this file.
+
+
 
 
 ## Testing
