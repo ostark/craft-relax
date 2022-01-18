@@ -14,6 +14,9 @@ class PluginSettings extends Model
 
     public bool $muteDeprecations = true;
 
+    /**
+     * @var class-string[]
+     */
     public array $searchIndexInsertFilter = [
         UselessAttributes::class,
         UselessKeywords::class,

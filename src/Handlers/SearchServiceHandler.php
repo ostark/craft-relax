@@ -27,6 +27,7 @@ class SearchServiceHandler
         // Overwrite 'search' key in service locator
         Craft::$app->set('search', function () use ($filters) {
             foreach ($filters as $key => $class) {
+
                 if (is_string($class)) {
                     $filters[$key] = Craft::createObject($class);
                 }
