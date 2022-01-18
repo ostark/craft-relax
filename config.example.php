@@ -2,15 +2,13 @@
 /**
  * Relax Plugin Configuration
  *
- * You can see a list of the available settings in
- * vendor/ostark/craft-relax/src/Settings.php.
+ * You can see all the available settings and defaults in
+ * vendor/ostark/craft-relax/src/PluginSettings.php.
  *
  * @see \ostark\Relax\PluginSettings
  */
 
 use craft\helpers\App;
-use ostark\Relax\SearchIndex\InsertFilter\UselessAttributes;
-use ostark\Relax\SearchIndex\InsertFilter\UselessKeywords;
 
 return [
 
@@ -27,7 +25,8 @@ return [
     /**
      * Queue
      *
-     * (bool) false - the default queue behaviour of Craft
+     * (bool) true means: Use the queue the plugin provides
+     * (bool) false means: Use the default queue behaviour of Craft
      */
     // 'hashedQueue' => false,
 
@@ -35,11 +34,12 @@ return [
     /**
      * Search index inserts
      *
-     * By default these filters prevent bloated indexes
+     * By default these filters are applied
      * @see ostark\Relax\SearchIndex\InsertFilter\UselessAttributes
      * @see ostark\Relax\SearchIndex\InsertFilter\UselessKeywords
      *
-     * Define your own filters to adjust the opinionated behaviour of the plugin
+     * Define your own filters to adjust the opinionated filters of the plugin.
+     * An empty array disables all filters.
      */
     // 'searchIndexInsertFilter' => [],
 ];

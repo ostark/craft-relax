@@ -33,4 +33,18 @@ final class Plugin extends BasePlugin
     {
         return new PluginSettings();
     }
+
+    /**
+     * Is called after the plugin is installed.
+     * Copies example config to project's config folder
+     */
+    protected function afterInstall(): void
+    {
+        $configSourceFile = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR. 'config.example.php';
+        $configTargetFile = \Craft::$app->getConfig()->configDir . DIRECTORY_SEPARATOR . 'relax.php';
+
+        if (! file_exists($configTargetFile)) {
+            copy($configSourceFile, $configTargetFile);
+        }
+    }
 }
