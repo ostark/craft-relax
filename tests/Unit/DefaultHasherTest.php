@@ -8,6 +8,7 @@ it('creates a hash from a job object with a time formatted suffix', function () 
     $result = $hasher->hash(new DummyJob());
     [$md5, $suffix] = explode($separator, $result, 2);
 
+    expect(mb_strlen($result))->toBeLessThanOrEqual(64);
     expect($md5)->toHaveLength(32);
     expect($suffix)->toEndWith('00');
 });
