@@ -31,9 +31,17 @@ class QueueServiceHandler
             return;
         }
 
-        // Overwrite 'queue' key in service locator
+        // Initialize HashedJobQueue
         $serializer = Craft::$app->getQueue()->serializer;
         $hasher = new DefaultHasher($serializer);
-        Craft::$app->set('queue', new HashedJobQueue($hasher));
+        $queue = new HashedJobQueue($hasher);
+
+        // Overwrite 'queue' key in service locator
+        Craft::$app->set('queue', $queue);
+
+        // Overwrite 'queue' property of queue\Command
+        if (isset(Craft::$app->controllerMap['queue']['queue'])) {
+            Craft::$app->controllerMap['queue']['queue'] = $queue;
+        }
     }
 }
