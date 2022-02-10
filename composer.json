@@ -23,7 +23,7 @@
         "docs": "https://github.com/ostark/craft-relax/blob/main/README.md"
     },
     "require": {
-        "php": "^7.4 | ^8.0",
+        "php": "^7.4||^8.0",
         "craftcms/cms": "^3.7.20",
         "treeware/plant": "*",
         "yiisoft/yii2-queue": "^2.3.3"
