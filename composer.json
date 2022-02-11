@@ -23,16 +23,18 @@
         "docs": "https://github.com/ostark/craft-relax/blob/main/README.md"
     },
     "require": {
-        "php": "^7.4 | ^8.0",
+        "php": "^7.4||^8.0",
         "craftcms/cms": "^3.7.20",
         "treeware/plant": "*",
         "yiisoft/yii2-queue": "^2.3.3"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
         "nunomaduro/collision": "^5.10",
-        "phpstan/phpstan": "^1.0",
+        "ostark/craft-mockery": "dev-master",
         "pestphp/pest": "^1.2",
-        "friendsofphp/php-cs-fixer": "^3.0"
+        "pestphp/pest-plugin-parallel": "^1.0",
+        "phpstan/phpstan": "^1.0"
     },
     "autoload": {
         "psr-4": {
