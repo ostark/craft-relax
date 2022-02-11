@@ -41,9 +41,3 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function mockCraftApp()
-{
-    // $mockApp = \craft\test\TestSetup::getMockApp($test);
-    // \Craft::$app = $mockApp;
-    // \Yii::$app = $mockApp;
-}
