@@ -7,6 +7,7 @@
 The plugin tries to reduce write I/O on the database in multiple ways. 
 
 It prevents servers from being overwhelmed by too many queue messages, the search index becomes leaner by skipping useless terms, and deprecation notices are written in dev environments only.
+
 In result the database is more relaxed and can handle more queries faster, which leads to faster sites.
 
 
@@ -22,6 +23,15 @@ php craft plugin/install relax
 The first time plugin is installed, a config file `config/relax.php` is created. All config settings are documented in this file.
 
 
+## Update search index
+
+To optimize the search index you need to resave elements. Use the build-in resave commands of the `craft` cli 
+
+```
+php craft resave/entries --update-search-index
+php craft resave/assets --update-search-index
+php craft resave/matrix-blocks --update-search-index
+```
 
 
 ## Testing
