@@ -38,7 +38,8 @@ declare(strict_types=1);
 |
 */
 
-function disableCustomFields(): void {
+function disableCustomFields(): void
+{
     $class = '\craft\behaviors\CustomFieldBehavior';
     if (Yii::$container->has($class)) {
         spl_autoload_unregister([Craft::class, 'autoload']);
