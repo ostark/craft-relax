@@ -17,6 +17,7 @@ class DefaultHasher implements Hasher
         $this->serializer = $serializer;
         $this->precisionInMinutes = $minutes;
     }
+
     /**
      * @param \yii\queue\JobInterface|string $job
      *
@@ -32,7 +33,7 @@ class DefaultHasher implements Hasher
     private function timeSuffix(string $format = 'Ymd.His'): string
     {
         $precision = $this->precisionInMinutes * 60;
-        $rounded =  (int) ceil(time() / $precision) * $precision;
+        $rounded = (int) ceil(time() / $precision) * $precision;
 
         return date($format, $rounded);
     }

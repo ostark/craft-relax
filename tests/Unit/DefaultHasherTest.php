@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 it('creates a hash from a job object with a time formatted suffix', function () {
     $serializer = new \yii\queue\serializers\PhpSerializer();
     $hasher = new \ostark\Relax\Queue\DefaultHasher($serializer);
@@ -26,6 +28,5 @@ class DummyJob implements \craft\queue\JobInterface
 
     public function execute($queue)
     {
-
     }
 }
