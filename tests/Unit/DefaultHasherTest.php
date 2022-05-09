@@ -24,12 +24,12 @@ class DummyJob implements \craft\queue\JobInterface
 {
     public int $prop = 1;
 
-    public function getDescription()
+    public function getDescription(): string
     {
         return 'dummy';
     }
 
-    public function execute($queue)
+    public function execute($queue): void
     {
     }
 }
