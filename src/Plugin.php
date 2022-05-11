@@ -9,7 +9,6 @@ use craft\services\Plugins;
 use ostark\Relax\Handlers\DeprecationServiceHandler;
 use ostark\Relax\Handlers\QueueServiceHandler;
 use ostark\Relax\Handlers\SearchServiceHandler;
-use phpDocumentor\Reflection\Types\Boolean;
 use yii\base\Event;
 
 /**
