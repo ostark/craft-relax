@@ -30,6 +30,7 @@ The first time plugin is installed, a config file `config/relax.php` is created.
 composer test
 ```
 
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
