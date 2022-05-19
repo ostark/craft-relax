@@ -43,5 +43,10 @@ class QueueServiceHandler
         if (isset(Craft::$app->controllerMap['queue']['queue'])) {
             Craft::$app->controllerMap['queue']['queue'] = $queue;
         }
+
+        // Extrawurst for feed-me
+        if ($feedMe = Craft::$app->getPlugins()->getPlugin('feed-me')) {
+            $feedMe->queue = $queue;
+        };
     }
 }
