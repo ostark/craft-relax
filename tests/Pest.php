@@ -26,9 +26,6 @@ declare(strict_types=1);
 |
 */
 
-expect()->extend('toBeOne', function () {
-    return $this->toBe(1);
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -41,9 +38,11 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function mockCraftApp()
+function disableCustomFields(): void
 {
-    // $mockApp = \craft\test\TestSetup::getMockApp($test);
-    // \Craft::$app = $mockApp;
-    // \Yii::$app = $mockApp;
+    $class = '\craft\behaviors\CustomFieldBehavior';
+    if (Yii::$container->has($class)) {
+        spl_autoload_unregister([Craft::class, 'autoload']);
+        Yii::$container->set($class, new \yii\base\Behavior());
+    }
 }

@@ -14,6 +14,7 @@ class Install extends Migration
     {
         // Same schema as the `queue` table, but with an additional `job_hash` column
         // to prevent duplicated queue messages
+        $this->dropTableIfExists(HashedJobQueue::TABLE);
         $this->createTable(HashedJobQueue::TABLE, [
             'id' => $this->primaryKey(),
             'channel' => $this->string()->notNull()->defaultValue('queue'),
@@ -43,7 +44,7 @@ class Install extends Migration
 
     public function safeDown(): bool
     {
-        $this->dropTable(HashedJobQueue::TABLE);
+        $this->dropTableIfExists(HashedJobQueue::TABLE);
 
         return true;
     }

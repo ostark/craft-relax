@@ -53,10 +53,10 @@ class HashedJobQueue extends Queue implements QueueInterface
      * @param int    $delay
      * @param mixed  $priority
      *
-     * @return string|null
+     * @return string
      * @throws \yii\db\Exception
      */
-    protected function pushMessage($message, $ttr, $delay, $priority): ?string
+    protected function pushMessage($message, $ttr, $delay, $priority): string
     {
         $hash = $this->hasher->hash($message);
         $found = (new Query())
@@ -65,7 +65,7 @@ class HashedJobQueue extends Queue implements QueueInterface
             ->count('*', $this->db);
 
         if ($found) {
-            return null;
+            return '1';
         }
 
         $data = [
@@ -78,7 +78,7 @@ class HashedJobQueue extends Queue implements QueueInterface
             self::HASH_COLUMN => $hash,
         ];
 
-        Db::insert($this->tableName, $data, false, $this->db);
+        Db::insert($this->tableName, $data, $this->db);
 
         return $this->db->getLastInsertID($this->tableName);
     }
