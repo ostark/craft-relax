@@ -1,12 +1,9 @@
 blank_issues_enabled: false
 contact_links:
   - name: Request a feature
-    url: https://github.com/ostark/craft-relax/issues/new
+    url: https://github.com/ostark/craft-relax/issues/new?labels=enhancement&title=[IDEA]
     about: Share ideas for new features
-    title: "[Idea]"
-    labels: enhancement
   - name: Report a bug
-    url: https://github.com/ostark/craft-relax/issues/new
+    url: https://github.com/ostark/craft-relax/issues/new?labels=bug&title=[BUG]
     about: Report a reproducable bug
-    title: "[Bug]"
-    labels: bug
+
