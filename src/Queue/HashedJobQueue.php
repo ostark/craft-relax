@@ -9,6 +9,8 @@ use craft\helpers\Db;
 use craft\queue\JobInterface as CraftJob;
 use craft\queue\Queue;
 use craft\queue\QueueInterface;
+use yii\base\InvalidConfigException;
+use function RectorPrefix20220501\Symfony\Component\DependencyInjection\Loader\Configurator\param;
 
 class HashedJobQueue extends Queue implements QueueInterface
 {
@@ -19,6 +21,8 @@ class HashedJobQueue extends Queue implements QueueInterface
     public Hasher $hasher;
 
     private ?string $jobDescription;
+
+    public ?string $channel = 'queue';
 
     public function __construct(Hasher $hasher, $config = [])
     {
