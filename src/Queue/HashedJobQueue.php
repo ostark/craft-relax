@@ -20,6 +20,8 @@ class HashedJobQueue extends Queue implements QueueInterface
 
     private ?string $jobDescription;
 
+    public ?string $channel = 'queue';
+
     public function __construct(Hasher $hasher, $config = [])
     {
         parent::__construct($config);

@@ -2,6 +2,10 @@
 
 All notable changes will be documented in this file.
 
+## 2.0.1 - 2022-09-14
+
+- Fix `Queue must be an application component.` error
+
 ## 2.0.0 - 2022-05-19
 
 - Craft 4 support 
