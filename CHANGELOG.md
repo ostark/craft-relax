@@ -2,6 +2,12 @@
 
 All notable changes will be documented in this file.
 
+## 2.0.2 - 2024-01-04
+
+- Added extra condition to support the lastest changes in Blitz.
+
+
+
 ## 2.0.1 - 2022-09-14
 
 - Fix `Queue must be an application component.` error

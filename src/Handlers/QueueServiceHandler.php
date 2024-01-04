@@ -46,8 +46,16 @@ class QueueServiceHandler
 
         // Extrawurst for feed-me
         if ($feedMe = Craft::$app->getPlugins()->getPlugin('feed-me')) {
-            /** @phpstan-ignore-next-line */
-            $feedMe->queue = $queue;
+            if (property_exists($feedMe, 'queue')) {
+                $feedMe->queue = $queue;
+            }
+        };
+
+        // Extrawurst for blitz
+        if ($blitz = Craft::$app->getPlugins()->getPlugin('blitz')) {
+            if (property_exists($blitz, 'queue')) {
+                $blitz->queue = $queue;
+            }
         };
     }
 }
