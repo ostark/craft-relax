@@ -2,6 +2,10 @@
 
 All notable changes will be documented in this file.
 
+## 2.1.0 - 2024-04-18
+
+- Craft 5 compatibility
+
 ## 2.0.2 - 2024-01-04
 
 - Added extra condition to support the lastest changes in Blitz.
